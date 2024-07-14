@@ -10,10 +10,10 @@ const handleRegister = (req, res, db, bcrypt, saltRounds) => {
             hash: hash,
             email: email
         })
-        .into('login')
+        .into('login2')
         .returning('email')
         .then(loginEmail => {
-            return trx('users')
+            return trx('users2')
                 .returning('*')
                 .insert({
                     email: loginEmail[0].email,
